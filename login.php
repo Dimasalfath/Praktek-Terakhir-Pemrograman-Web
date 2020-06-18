@@ -1,9 +1,3 @@
-<?php
-	session_start();
-	if(!isset($_SESSION['username'])){
-		echo "anda belum masuk! silahkan <a href='login.php'>masuk dulu!</a>";
-	}else{
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +19,10 @@
 		$hasil = mysqli_fetch_array($cek_data);
 		$level = $hasil['level'];
 		$row = mysqli_num_rows($cek_data);
+		$nama_user = $hasil['password'];
 		if($row > 0){
+			session_start();
+			$_SESSION['password'] = $nama_user;
 			if($level == 'admin'){
 				header('location:admin.php');
 			}elseif($level == 'mahasiswa'){
@@ -40,4 +37,3 @@
 	?>
 </body>
 </html>
-<?php } ?>
