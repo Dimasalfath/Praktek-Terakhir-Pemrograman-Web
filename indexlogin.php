@@ -1,9 +1,3 @@
-<?php
-	session_start();
-	if(!isset($_SESSION['username'])){
-		echo "anda belum masuk! silahkan <a href='login.php'>masuk dulu!</a>";
-	}else{
-?>
 <html>
 	<head>
 		<title>Halaman Absen</title>
@@ -29,4 +23,3 @@
 		</footer>
 	</body>
 </html>
-<?php } ?>
